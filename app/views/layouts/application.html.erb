@@ -11,7 +11,13 @@
     <%= hotwire_livereload_tags if Rails.env.development? %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="p-2">
+  <% if flash.any? %>
+    <% flash.each do |key, value| -%>
+      <section class="flash flash__<%= key %>"><%= value.html_safe %></section>
+    <% end -%>
+  <% end %>
+
+  <%= yield %>
   </body>
 </html>
