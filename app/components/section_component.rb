@@ -1,22 +1,16 @@
 # frozen_string_literal: true
 
 class SectionComponent < ViewComponent::Base
-  attr_reader :title, :header_level
+  include ClassHelper
 
-  def initialize(title: nil, header_level: 1)
+  def initialize(title: nil, classname: nil, label_id: nil)
     @title = title
-    @header_level = header_level
-  end
-
-  private
-
-  def title_id
-    return nil unless title.present?
-    title.split(' ').join('-').downcase
+    @classname = classname
+    @label_id = label_id
   end
 
   def labelled_by
-    return "" unless title.present?
-    "aria-labelledby=\"#{title_id}\"".html_safe
+    return nil if @label_id.nil?
+    "aria-labelledby=\"#{@label_id}\"".html_safe
   end
 end

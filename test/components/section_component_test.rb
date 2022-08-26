@@ -12,13 +12,8 @@ class SectionComponentTest < ViewComponent::TestCase
   end
 
   def test_rendering_accessible_title
-    render_inline(SectionComponent.new(title: "A Title")) { "Hello World" }
-    header = page.find('h1')
+    render_inline(SectionComponent.new(label_id: 'a-label')) { "Hello World" }
     section = page.find('section')
-
-    assert_equal 'a-title', header[:id]
-    assert_equal 'a-title', section['aria-labelledby']
-
-    assert_selector('h1', text: 'Title')
+    assert_equal 'a-label', section['aria-labelledby']
   end
 end

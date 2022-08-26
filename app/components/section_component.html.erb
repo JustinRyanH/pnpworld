@@ -1,8 +1,3 @@
-<section class="p-2 md:px-6 bg-neutral-100 dark:bg-neutral-500 rounded m-2" <%= labelled_by %>>
-  <% if title %>
-    <%= render HeaderComponent.new(id: title_id, level: header_level) do %>
-      <%= title %>
-    <% end %>
-  <% end %>
+<section class="p-2 md:px-6 bg-neutral-100 dark:bg-neutral-500 rounded m-2<%= extraClasses %>" <%= labelled_by %>>
   <%= content %>
 </section>

@@ -6,16 +6,12 @@ class SectionComponentPreview < Preview
       '<p>Paragraph</p>'.html_safe
     end
   end
-
-  def with_title
-    render SectionComponent.new(title: "Example Title") do
+  def with_extra_class
+    render SectionComponent.new(classname: "drop-shadow-xl bg-amber-200/10") do
       '<p>Paragraph</p>'.html_safe
     end
   end
 
-  def with_different_header_size
-    render SectionComponent.new(title: "Level 3 Header", header_level: 3) do
-      '<p>Paragraph</p>'.html_safe
-    end
+  def with_accessible_label_id
   end
 end
