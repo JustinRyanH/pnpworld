@@ -31,10 +31,22 @@ class HeaderComponentPreview < Preview
     end
   end
 
+  def header_with_level_5
+    render HeaderComponent.new(level: 6) do
+      'Heading 6'
+    end
+  end
+
   def header_with_extra_classes
     classname = "bg-amber-700/20 m-2 p-2 rounded-xl shadow-xl"
     render HeaderComponent.new(classname: "#{classname}") do
       'Header with Extra Classes'
+    end
+  end
+
+  def with_id
+    render HeaderComponent.new(id: 'example-id') do
+      'With Id'
     end
   end
 end
