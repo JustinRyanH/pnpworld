@@ -13,5 +13,4 @@ class UserTest < ActiveSupport::TestCase
     new_user = User.new(email: "other@example.com")
     refute new_user.valid?, "User email cannot be duplicated"
   end
-
 end
