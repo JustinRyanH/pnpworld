@@ -12,4 +12,10 @@ class SectionComponentPreview < Preview
       '<p>Paragraph</p>'.html_safe
     end
   end
+
+  def with_different_header_size
+    render SectionComponent.new(title: "Level 3 Header", header_level: 3) do
+      '<p>Paragraph</p>'.html_safe
+    end
+  end
 end

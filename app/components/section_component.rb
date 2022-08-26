@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 
 class SectionComponent < ViewComponent::Base
-  attr_reader :title
+  attr_reader :title, :header_level
 
-  def initialize(title: nil)
+  def initialize(title: nil, header_level: 1)
     @title = title
+    @header_level = header_level
   end
 
   private
