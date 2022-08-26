@@ -108,6 +108,9 @@ GEM
     globalid (1.0.0)
       activesupport (>= 5.0)
     hashie (5.0.0)
+    hotwire-livereload (1.2.2)
+      listen (>= 3.0.0)
+      rails (>= 6.0.0)
     htmlbeautifier (1.4.2)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
@@ -317,6 +320,7 @@ DEPENDENCIES
   debug
   devise
   foreman
+  hotwire-livereload (~> 1.2)
   jbuilder
   jsbundling-rails
   lookbook
