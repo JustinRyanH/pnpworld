@@ -7,4 +7,7 @@ Rails.application.routes.draw do
     get 'users/sign_out', to: 'users/sessions#destroy', as: :destroy_user_session
   end
   # Defines the root path route ("/")
+  if Rails.env.development?
+    mount Lookbook::Engine, at: "/lookbook"
+  end
 end
