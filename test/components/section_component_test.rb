@@ -8,7 +8,7 @@ class SectionComponentTest < ViewComponent::TestCase
     section = page.find('section')
 
     assert_text("Hello World")
-    assert_equal nil, section['aria-labelledby']
+    assert_nil section['aria-labelledby']
   end
 
   def test_rendering_accessible_title
