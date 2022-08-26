@@ -3,7 +3,7 @@
 class SectionComponentPreview < Preview
   def with_content_block
     render SectionComponent.new do
-      'Hello'
+      '<p>Paragraph</p>'.html_safe
     end
   end
 end
