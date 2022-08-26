@@ -30,4 +30,11 @@ class HeaderComponentPreview < Preview
       'Heading 5'
     end
   end
+
+  def header_with_extra_classes
+    classname = "bg-amber-500/20 m-2 p-2 rounded-xl"
+    render HeaderComponent.new(level: 5, classname: "#{classname}") do
+      'Header with Extra Classes'
+    end
+  end
 end

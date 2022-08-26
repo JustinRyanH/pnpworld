@@ -1,14 +1,15 @@
 # frozen_string_literal: true
 
 class HeaderComponent < ViewComponent::Base
-  def initialize(level: 1, extraClass: "")
+  def initialize(level: 1, classname: nil, id: nil)
     @level = level
-    @extraClass = extraClass
+    @classname = classname
+    @id = id
   end
 
   private
 
-  attr_reader :level, :extraClass
+  attr_reader :level
 
   def className
     case level
@@ -28,5 +29,10 @@ class HeaderComponent < ViewComponent::Base
     when 4 then 'h4'
     when 5 then 'h5'
     end
+  end
+
+  def extraClass
+    return '' if @classname.nil?
+    " #{@classname}"
   end
 end
