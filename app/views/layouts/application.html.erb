@@ -11,7 +11,16 @@
     <%= hotwire_livereload_tags if Rails.env.development? %>
   </head>
 
-  <body class="p-2">
+  <body>
+  <% unless @hide_nav %>
+    <nav class="bg-neutral-200 py-2 px-4 w-full flex flex-direction justify-end">
+      <% if current_user.present? %>
+        <%= link_to "Sign Out", destroy_user_session_path, class: "px-4 py-2 bg-neutral-500 hover:bg-neutral-700 text-white font-bold" %>
+      <% else %>
+        <%= link_to "Sign In", new_user_session_path, class: "px-4 py-2 bg-neutral-500 hover:bg-neutral-700 text-white font-bold" %>
+      <% end %>
+    </nav>
+  <% end %>
   <% if flash.any? %>
     <% flash.each do |key, value| -%>
       <section class="flash flash__<%= key %>"><%= value.html_safe %></section>
