@@ -3,7 +3,7 @@
 class HeaderComponentPreview < Preview
   def header_with_content
     render HeaderComponent.new do
-      'Hello World'
+      'Heading 1'
     end
   end
 end
