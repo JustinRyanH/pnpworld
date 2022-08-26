@@ -6,4 +6,10 @@ class SectionComponentPreview < Preview
       '<p>Paragraph</p>'.html_safe
     end
   end
+
+  def with_title
+    render SectionComponent.new(title: "Example Title") do
+      '<p>Paragraph</p>'.html_safe
+    end
+  end
 end

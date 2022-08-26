@@ -10,4 +10,6 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+  Capybara.enable_aria_label = true
+  Capybara.enable_aria_role = true
 end
