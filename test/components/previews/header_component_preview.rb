@@ -44,7 +44,7 @@ class HeaderComponentPreview < Preview
     end
   end
 
-  def with_id
+  def header_with_identifier
     render HeaderComponent.new(id: 'example-id') do
       'With Id'
     end
