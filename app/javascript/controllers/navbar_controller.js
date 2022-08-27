@@ -12,8 +12,12 @@ export default class extends Controller {
     if (ariaOpen === 'false') {
       this.enableMobileButton(openButton);
     } else {
-      openButton.setAttribute('aria-expanded', 'false');
+      this.disableMobileButton(openButton);
     }
+  }
+
+  disableMobileButton(openButton) {
+    openButton.setAttribute('aria-expanded', 'false');
   }
 
   enableMobileButton(openButton) {
