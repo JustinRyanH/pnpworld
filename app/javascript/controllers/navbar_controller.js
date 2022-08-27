@@ -1,4 +1,4 @@
-import { Controller } from "@hotwired/stimulus"
+import {Controller} from "@hotwired/stimulus"
 
 // Connects to data-controller="navbar"
 export default class extends Controller {
@@ -8,12 +8,8 @@ export default class extends Controller {
 
   toggle() {
     const openButton = this.openButtonTarget;
-    const ariaOpen = openButton.getAttribute('aria-expanded');
-    if (ariaOpen === 'false') {
-      this.openMobileMenu(openButton);
-    } else {
-      this.closeMobileMenu(openButton);
-    }
+    let isMenuClosed = openButton.getAttribute('aria-expanded') === 'false';
+    isMenuClosed ? this.openMobileMenu(openButton) : this.closeMobileMenu(openButton);
   }
 
   closeMobileMenu(openButton) {
