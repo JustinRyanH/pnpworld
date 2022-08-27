@@ -1,8 +1,21 @@
 # frozen_string_literal: true
 
 class NavbarButtonComponent < ViewComponent::Base
+  def initialize(active: false)
+    @active = active
+  end
+
+  private
+
+  def is_active?
+    @active
+  end
 
   def inactive_css
-    "block py-2 pr-4 pl-3 text-white hover:bg-blue-700/20 rounded md:font-bold md:bg-transparent md:text-blue-500 md:p-0 hover:md:bg-transparent dark:text-white"
+    'nav-btn md:nav-btn inactive-nav-btn'
+  end
+
+  def active_css
+    'nav-btn md:nav-btn active-nav-btn'
   end
 end

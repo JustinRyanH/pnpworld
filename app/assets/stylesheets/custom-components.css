@@ -1,3 +1,15 @@
 .hyperlink {
     @apply text-blue-600 dark:text-blue-300 hover:underline
 }
+
+.md\:nav-btn {
+    @apply md:font-bold md:bg-transparent md:text-blue-500 md:p-0 hover:md:bg-transparent
+}
+
+.nav-btn {
+    @apply block py-2 pr-4 pl-3 text-white hover:bg-blue-700/50 rounded dark:text-white
+}
+
+.active-nav-btn {
+    @apply font-bold bg-blue-900 md:text-blue-700 md:bg-transparent
+}
