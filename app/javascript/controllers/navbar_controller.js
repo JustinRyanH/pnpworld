@@ -6,19 +6,30 @@ export default class extends Controller {
   connect() {
   }
 
+  get openButton() {
+    return this.openButtonTarget;
+  }
+
   toggle() {
-    const openButton = this.openButtonTarget;
-    let isMenuClosed = openButton.getAttribute('aria-expanded') === 'false';
-    isMenuClosed ? this.openMobileMenu(openButton) : this.closeMobileMenu(openButton);
+    let isMenuClosed = this.openButton.getAttribute('aria-expanded') === 'false';
+    isMenuClosed ? this.openMobileMenu() : this.closeMobileMenu();
   }
 
-  closeMobileMenu(openButton) {
-    openButton.setAttribute('aria-expanded', 'false');
+  closeMobileMenu() {
+    this.openButton.setAttribute('aria-expanded', 'false');
     this.menuContainerTarget.classList.add('hidden');
+    document.body.removeEventListener('click', this.onClickAway);
   }
 
-  openMobileMenu(openButton) {
-    openButton.setAttribute('aria-expanded', 'true');
+  openMobileMenu() {
+    this.openButton.setAttribute('aria-expanded', 'true');
     this.menuContainerTarget.classList.remove('hidden');
+    document.body.addEventListener('click', this.onClickAway);
   }
+
+  onClickAway = event => {
+    if (!this.element.contains(event.target)) {
+      this.closeMobileMenu()
+    }
+  };
 }
