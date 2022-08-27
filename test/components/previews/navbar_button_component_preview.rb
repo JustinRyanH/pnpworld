@@ -4,4 +4,10 @@ class NavbarButtonComponentPreview < Preview
       "Button"
     end
   end
+
+  def navbar_active_button
+    render NavbarButtonComponent.new(active: true) do
+      "Button"
+    end
+  end
 end
