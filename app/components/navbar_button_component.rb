@@ -1,11 +1,14 @@
 # frozen_string_literal: true
 
 class NavbarButtonComponent < ViewComponent::Base
-  def initialize(active: false)
+  def initialize(active: false, href: "#")
     @active = active
+    @href = href
   end
 
   private
+
+  attr_reader :href
 
   def is_active?
     @active

@@ -10,4 +10,10 @@ class NavbarButtonComponentPreview < Preview
       "Button"
     end
   end
+
+  def navbar_link
+    render NavbarButtonComponent.new(href: "https://example.com") do
+      "Button"
+    end
+  end
 end
