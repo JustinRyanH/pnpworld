@@ -1,1 +1,10 @@
-<h1 class="mb-2">You're logged in! Welcome to the App</h1>
+<%= render SectionComponent.new(label_id: 'pnp-world') do %>
+  <%= render HeaderComponent.new(id: 'pnp-world') do %>
+    Pen & Paper World
+  <% end %>
+  <% if current_user %>
+    <p>Welcome to PnP world</p>
+  <% else %>
+    <p class="my-4">Please <%= link_to "Log In", new_user_session_path, class: "font-medium hyperlink" %> to utilized Pen & Paper World</p>
+  <% end %>
+<% end %>
