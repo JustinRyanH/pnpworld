@@ -10,17 +10,17 @@ export default class extends Controller {
     const openButton = this.openButtonTarget;
     const ariaOpen = openButton.getAttribute('aria-expanded');
     if (ariaOpen === 'false') {
-      this.enableMobileButton(openButton);
+      this.openMobileMenu(openButton);
     } else {
-      this.disableMobileButton(openButton);
+      this.closeMobileMenu(openButton);
     }
   }
 
-  disableMobileButton(openButton) {
+  closeMobileMenu(openButton) {
     openButton.setAttribute('aria-expanded', 'false');
   }
 
-  enableMobileButton(openButton) {
+  openMobileMenu(openButton) {
     openButton.setAttribute('aria-expanded', 'true');
   }
 }
