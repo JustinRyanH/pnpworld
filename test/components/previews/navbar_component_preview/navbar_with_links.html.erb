@@ -1,0 +1,17 @@
+<%= render NavbarComponent.new do |context| %>
+  <% context.with_link do %>
+    <%= render NavbarButtonComponent.new(active: true) do %>
+      Current Page
+    <% end %>
+  <% end %> %>
+  <% context.with_link do %>
+    <%= render NavbarButtonComponent.new do %>
+      Another Page
+    <% end %>
+  <% end %> %>
+  <% context.with_link do %>
+    <%= render NavbarButtonComponent.new do %>
+      One More Page
+    <% end %>
+  <% end %> %>
+<% end  %>
