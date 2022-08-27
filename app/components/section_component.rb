@@ -3,8 +3,7 @@
 class SectionComponent < ViewComponent::Base
   include ClassHelper
 
-  def initialize(title: nil, classname: nil, label_id: nil)
-    @title = title
+  def initialize(classname: nil, label_id: nil)
     @classname = classname
     @label_id = label_id
   end
