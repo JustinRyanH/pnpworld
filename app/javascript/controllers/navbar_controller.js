@@ -2,7 +2,7 @@ import {Controller} from "@hotwired/stimulus"
 
 // Connects to data-controller="navbar"
 export default class extends Controller {
-  static targets = ['openButton']
+  static targets = ['openButton', 'menuContainer']
   connect() {
   }
 
@@ -14,9 +14,11 @@ export default class extends Controller {
 
   closeMobileMenu(openButton) {
     openButton.setAttribute('aria-expanded', 'false');
+    this.menuContainerTarget.classList.add('hidden');
   }
 
   openMobileMenu(openButton) {
     openButton.setAttribute('aria-expanded', 'true');
+    this.menuContainerTarget.classList.remove('hidden');
   }
 }
