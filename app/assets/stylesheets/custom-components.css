@@ -2,6 +2,14 @@
     @apply text-blue-600 dark:text-blue-300 hover:underline
 }
 
+.nav {
+    @apply bg-gray-200 dark:bg-gray-900 px-2 sm:px-4 py-2.5 rounded border-gray-200 dark:border-zinc-500;
+}
+
+.nav-container {
+    @apply container flex flex-wrap justify-between items-center mx-auto;
+}
+
 .md\:nav-btn {
     @apply md:font-bold md:bg-transparent md:text-blue-500 md:p-0 hover:md:bg-transparent
 }
