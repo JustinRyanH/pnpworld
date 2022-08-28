@@ -17,12 +17,14 @@ export default class extends Controller {
 
   closeMobileMenu() {
     this.openButton.setAttribute('aria-expanded', 'false');
+    this.element.classList.remove('nav-menu-open')
     this.menuContainerTarget.classList.add('hidden');
     document.body.removeEventListener('click', this.onClickAway);
   }
 
   openMobileMenu() {
     this.openButton.setAttribute('aria-expanded', 'true');
+    this.element.classList.add('nav-menu-open')
     this.menuContainerTarget.classList.remove('hidden');
     document.body.addEventListener('click', this.onClickAway);
   }
