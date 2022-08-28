@@ -23,10 +23,10 @@ class ApplicationController < ActionController::Base
     if action.nil?
       text = I18n.t(['navbar', controller].join('.'))
       link = url_for(controller.to_sym)
-      return NavigationBtn.new(link:, text:)
+    else
+      link = url_for(controller: controller.to_sym, action:)
+      text = I18n.t ['navbar', controller, action].join('.')
     end
-    link = url_for(controller: controller.to_sym, action:)
-    text = I18n.t ['navbar', controller, action].join('.')
     NavigationBtn.new(link:, text:)
   end
 
