@@ -1,0 +1,14 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+
+adthran:
+  name: Adthran Goldale
+  keeper: example_player
+
+galbrek:
+  name: Galbrek Bloodrock
+  keeper: example_player
+
+urmryl:
+  name: Urmryl Strongward
+  keeper: example_player

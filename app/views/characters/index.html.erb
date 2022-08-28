@@ -1,0 +1,18 @@
+<%= render SectionComponent.new(label_id: 'characters-header') do %>
+  <p style="color: green"><%= notice %></p>
+
+  <%= render HeaderComponent.new(id: 'characters-header') do %>
+    Characters
+  <% end %>
+
+  <div id="characters">
+    <% @characters.each do |character| %>
+      <%= render character %>
+      <p>
+        <%= link_to "Show this character", character %>
+      </p>
+    <% end %>
+  </div>
+
+  <%= link_to "New character", new_character_path %>
+<% end %>

@@ -1,0 +1,17 @@
+<%= render SectionComponent.new(label_id: 'characters-header') do %>
+  <p style="color: green"><%= notice %></p>
+
+  <%= render HeaderComponent.new(id: 'characters-header') do %>
+    Character
+  <% end %>
+
+  <%= render @character %>
+
+  <div>
+    <%= link_to "Edit this character", edit_character_path(@character) %> |
+    <%= link_to "Back to characters", characters_path %>
+
+    <%= button_to "Destroy this character", @character, method: :delete %>
+  </div>
+<% end %>
+

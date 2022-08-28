@@ -32,7 +32,9 @@
 en:
   navbar:
     root: 'Home'
+    characters: 'Characters'
     users/sessions:
       destroy: 'Logout'
       new: 'Login'
+
   hello: "Hello world"

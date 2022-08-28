@@ -11,3 +11,7 @@ main:
 other:
   username: Other User
   email: other@example.com
+
+example_player:
+  username: Kuga
+  email: kuga@example.com

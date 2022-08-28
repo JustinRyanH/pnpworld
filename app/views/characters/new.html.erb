@@ -1,0 +1,13 @@
+<%= render SectionComponent.new(label_id: 'characters-header') do %>
+  <%= render HeaderComponent.new(id: 'characters-header') do %>
+    New character
+  <% end %>
+
+  <%= render "form", character: @character %>
+
+  <br>
+
+  <div>
+    <%= link_to "Back to characters", characters_path %>
+  </div>
+<% end %>

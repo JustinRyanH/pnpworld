@@ -4,3 +4,8 @@
 @import "custom-components.css";
 
 @import "tailwindcss/utilities";
+
+
+input:not([type="submit"]) {
+    @apply text-neutral-700;
+}

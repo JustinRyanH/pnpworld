@@ -14,8 +14,9 @@ class ApplicationController < ActionController::Base
   def navigation_buttons
     @navigation_buttons = [].tap do |buttons|
       buttons << build_navigation_button(controller: 'root')
-      buttons << build_navigation_button(controller: 'users/sessions', action: 'destroy') if @current_user.present?
-      buttons << build_navigation_button(controller: 'users/sessions', action: 'new') if @current_user.nil?
+      buttons << build_navigation_button(controller: 'characters') if current_user.present?
+      buttons << build_navigation_button(controller: 'users/sessions', action: 'destroy') if current_user.present?
+      buttons << build_navigation_button(controller: 'users/sessions', action: 'new') if current_user.nil?
     end
   end
 
