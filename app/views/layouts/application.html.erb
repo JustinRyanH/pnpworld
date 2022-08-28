@@ -1,32 +1,41 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Pnpworld</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>Pnpworld</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
-    <%= hotwire_livereload_tags if Rails.env.development? && @live_reload %>
-  </head>
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+  <%= hotwire_livereload_tags if Rails.env.development? && @live_reload %>
+</head>
 
-  <body class="dark:bg-zinc-700 dark:text-white">
-  <%# unless @hide_nav %>
-<!--    <nav class="bg-neutral-200 py-2 px-4 w-full flex flex-direction justify-end">-->
-      <%# if current_user.present? %>
-        <%#= link_to "Sign Out", destroy_user_session_path, class: "px-4 py-2 bg-neutral-500 hover:bg-neutral-700 text-white font-bold" %>
-      <%# else %>
-        <%#= link_to "Sign In", new_user_session_path, class: "px-4 py-2 bg-neutral-500 hover:bg-neutral-700 text-white font-bold" %>
-      <%# end %>
-<!--    </nav>-->
-  <%# end %>
-  <% if flash.any? %>
-    <% flash.each do |key, value| -%>
-      <section class="flash flash__<%= key %>"><%= value.html_safe %></section>
-    <% end -%>
+<body class="dark:bg-zinc-700 dark:text-white">
+<%= render NavbarComponent.new(sticky: true) do |navbar| %>
+  <% navbar.with_header do %>
+    <a href="#" class="flex items-center">
+      <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+        <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"></path>
+      </svg>
+      <span class="self-center mx-2 text-xl font-semibold whitespace-nowrap dark:text-white">PnP World</span>
+    </a>
+  <% end %> %>
+  <% navbar.with_link do %>
+    <%= render NavbarButtonComponent.new(active: true, href: entry_index_path) do %>
+      Home
+    <% end %>
+
   <% end %>
+<% end %>
+<% if flash.any? %>
+  <% flash.each do |key, value| -%>
+    <section class="flash flash__<%= key %>"><%= value.html_safe %></section>
+  <% end -%>
+<% end %>
 
-  <%= yield %>
-  </body>
+  <main class="mt-24">
+    <%= yield %>
+  </main>
+</body>
 </html>
