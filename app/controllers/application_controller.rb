@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   before_action :set_live_reload
   before_action :use_navigation
 
-  NavigationBtn = Struct.new(:active, :link, :text, keyword_init: true)
+  NavigationBtn = Struct.new(:active, :link, :text, :controller, keyword_init: true)
 
   private
 
@@ -20,7 +20,6 @@ class ApplicationController < ActionController::Base
 
   def login_logout_btn
     return NavigationBtn.new(active: false, link: destroy_user_session_path, text: 'Logout') if @current_user.present?
-
     NavigationBtn.new(active: false, link: new_user_session_path, text: 'Login')
   end
 

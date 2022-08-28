@@ -24,7 +24,7 @@
     <% end %> %>
     <%= navigation_buttons.each do |btn| %>
       <% navbar.with_link do %>
-        <%= render NavbarButtonComponent.new(active: btn.active, href: btn.link) do %>
+        <%= render NavbarButtonComponent.new(active: current_page?(btn.link), href: btn.link) do %>
           <%= btn.text %>
         <% end %>
       <% end %>
