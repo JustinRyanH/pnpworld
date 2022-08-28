@@ -18,6 +18,8 @@ class ApplicationController < ActionController::Base
   end
 
   def login_logout_btn
+    return NavigationBtn.new(active: false, link: destroy_user_session_path, text: 'Logout') if @current_user.present?
+
     NavigationBtn.new(active: false, link: new_user_session_path, text: 'Login')
   end
 
