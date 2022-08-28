@@ -19,15 +19,15 @@ class ApplicationController < ActionController::Base
   end
 
   def home_btn
-    NavigationBtn.new(link: url_for(:root), text: I18n.t('routes.root'))
+    NavigationBtn.new(link: url_for(:root), text: I18n.t('navbar.root'))
   end
 
   def login_logout_btn
     controller = 'users/sessions'
     action = @current_user.present? ? 'destroy' : 'new'
-    link = url_for(controller: controller, action: action)
-    return NavigationBtn.new(link: link, text: I18n.t('routes.user/session.destroy')) if @current_user.present?
-    NavigationBtn.new(link: link, text: I18n.t('routes.user/session.new'))
+    link = url_for(controller: controller.to_sym, action: action)
+    text = I18n.t ['navbar', controller, action].join('.')
+    NavigationBtn.new(link: link, text: text)
   end
 
   def set_live_reload

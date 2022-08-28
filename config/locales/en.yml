@@ -30,9 +30,9 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  routes:
+  navbar:
     root: 'Home'
-    user/session:
+    users/sessions:
       destroy: 'Logout'
       new: 'Login'
   hello: "Hello world"
