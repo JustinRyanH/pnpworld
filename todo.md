@@ -1,7 +1,10 @@
 ## Immediate
 
 - [x] Highlight the Current Active Page
-- [ ] Characters Page
+- [x] Characters Page
+- [ ] Fix bug where the Character will display temporary
+- [ ] Character Only showing the users
+- [ ] The Navbar Active route should be inclusive of subpages
 - [ ] Adminstrate
 
 ## Icebox
