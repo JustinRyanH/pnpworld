@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
-class SectionComponentPreview < Preview
+class SectionComponentPreview < ViewComponent::Preview
+  layout 'preview'
   def section_with_content_block
     render SectionComponent.new do
       '<p>Paragraph</p>'.html_safe

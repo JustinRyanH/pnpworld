@@ -10,7 +10,7 @@
   <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
 </head>
 
-<body>
+<body class="dark:bg-zinc-700 dark:text-white">
 <% if flash.any? %>
   <% flash.each do |key, value| -%>
     <section class="flash flash__<%= key %>"><%= value.html_safe %></section>

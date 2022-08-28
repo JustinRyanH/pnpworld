@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
-class HeaderComponentPreview < Preview
+class HeaderComponentPreview < ViewComponent::Preview
+  layout 'preview'
   def header_with_content
     render HeaderComponent.new do
       'Heading 1'

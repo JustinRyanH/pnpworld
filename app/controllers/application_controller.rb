@@ -2,16 +2,15 @@
 
 class ApplicationController < ActionController::Base
   before_action :set_live_reload
+  before_action :navigation_buttons
 
   NavigationBtn = Struct.new(:active, :link, :text, keyword_init: true)
 
   private
 
-  helper_method :navigation_buttons
-
   # @return [Array<NavigationBtn>]
   def navigation_buttons
-    [
+    @navigation_buttons = [
       NavigationBtn.new(active: true, link: root_path, text: 'Home'),
       login_logout_btn
     ]

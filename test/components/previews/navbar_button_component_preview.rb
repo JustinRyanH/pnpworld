@@ -1,4 +1,5 @@
-class NavbarButtonComponentPreview < Preview
+class NavbarButtonComponentPreview < ViewComponent::Preview
+  layout 'preview'
   def navbar_default
     render NavbarButtonComponent.new do
       "Button"
