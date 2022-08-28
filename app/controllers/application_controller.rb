@@ -12,22 +12,22 @@ class ApplicationController < ActionController::Base
 
   # @return [Array<NavigationBtn>]
   def navigation_buttons
-    @navigation_buttons = [
-      home_btn,
-      login_logout_btn
-    ]
+    @navigation_buttons = [].tap do |buttons|
+      buttons << build_navigation_button(controller: 'root')
+      buttons << build_navigation_button(controller: 'users/sessions', action: 'destroy') if @current_user.present?
+      buttons << build_navigation_button(controller: 'users/sessions', action: 'new') if @current_user.nil?
+    end
   end
 
-  def home_btn
-    NavigationBtn.new(link: url_for(:root), text: I18n.t('navbar.root'))
-  end
-
-  def login_logout_btn
-    controller = 'users/sessions'
-    action = @current_user.present? ? 'destroy' : 'new'
-    link = url_for(controller: controller.to_sym, action: action)
+  def build_navigation_button(controller:, action: nil)
+    if action.nil?
+      text = I18n.t(['navbar', controller].join('.'))
+      link = url_for(controller.to_sym)
+      return NavigationBtn.new(link:, text:)
+    end
+    link = url_for(controller: controller.to_sym, action:)
     text = I18n.t ['navbar', controller, action].join('.')
-    NavigationBtn.new(link: link, text: text)
+    NavigationBtn.new(link:, text:)
   end
 
   def set_live_reload
