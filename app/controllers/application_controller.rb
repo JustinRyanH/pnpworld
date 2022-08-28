@@ -13,9 +13,13 @@ class ApplicationController < ActionController::Base
   # @return [Array<NavigationBtn>]
   def navigation_buttons
     @navigation_buttons = [
-      NavigationBtn.new(link: root_path, text: 'Home'),
+      home_btn,
       login_logout_btn
     ]
+  end
+
+  def home_btn
+    NavigationBtn.new(link: root_path, text: 'Home')
   end
 
   def login_logout_btn
