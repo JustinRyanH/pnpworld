@@ -1,8 +1,8 @@
 ## Immediate
 
 - [x] Highlight the Current Active Page
-- [ ] Adminstrate
 - [ ] Characters Page
+- [ ] Adminstrate
 
 ## Icebox
 
