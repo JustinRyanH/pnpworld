@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   before_action :set_live_reload
   before_action :use_navigation
 
-  NavigationBtn = Struct.new(:link, :text, :controller, keyword_init: true)
+  NavigationBtn = Struct.new(:link, :text, :controller, :active, keyword_init: true)
 
   private
 
@@ -25,8 +25,9 @@ class ApplicationController < ActionController::Base
       text = I18n.t(['navbar', controller].join('.'))
       link = link_for_index(controller)
     else
-      link = url_for(controller: controller.to_sym, action:)
+      link = url_for(controller: controller.to_sym, action:, only_path: true)
       text = I18n.t ['navbar', controller, action].join('.')
+      active = false
     end
     NavigationBtn.new(link:, text:, active:)
   end
@@ -42,9 +43,5 @@ class ApplicationController < ActionController::Base
 
   def use_navigation
     @use_navigation = true
-  end
-
-  def current_user
-    super
   end
 end

@@ -10,7 +10,7 @@
   <%= navigation_buttons.each do |btn| %>
     <% navbar.with_link do %>
       <% active = current_page?(btn.link) %>
-      <%= render NavbarButtonComponent.new(active: active, href: btn.link) do %>
+      <%= render NavbarButtonComponent.new(active: btn.active, href: btn.link) do %>
         <%= btn.text %>
       <% end %>
     <% end %>
