@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_28_182406) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_28_211001) do
   create_table "characters", force: :cascade do |t|
     t.string "name", null: false
     t.integer "keeper_id"
@@ -31,6 +31,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_28_182406) do
     t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "github_uid"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
