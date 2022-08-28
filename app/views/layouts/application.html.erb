@@ -13,7 +13,7 @@
 
 <body class="dark:bg-zinc-700 dark:text-white">
 <% if @use_navigation %>
-  <%= render 'layouts/navbar' %>
+  <%= render 'layouts/navbar', cache: false %>
 <% end %>
 <% if flash.any? %>
   <% flash.each do |key, value| -%>
