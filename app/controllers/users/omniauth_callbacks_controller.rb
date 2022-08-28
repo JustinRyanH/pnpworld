@@ -12,6 +12,19 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     end
   end
 
+  def github
+    user = User.from_github(**from_github_params)
+
+    if user.present?
+      sign_out_all_scopes
+      flash[:success] = t 'devise.omniauth_callbacks.success', kind: 'Github'
+      sign_in_and_redirect user, event: :authentication
+    else
+      flash[:alert] = t 'devise.omniauth_callbacks.failure', kind: 'Github', reason: "#{auth.info.email} is not authorized."
+      redirect_to new_user_session_path
+    end
+  end
+
   protected
 
   def after_omniauth_failure_path_for(scope)
@@ -30,6 +43,15 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       email: auth.info.email,
       full_name: auth.info.name,
       avatar_url: auth.info.name
+    }
+  end
+
+  def from_github_params
+    @from_github_params ||= {
+      uid: auth.uid,
+      email: auth.info.email,
+      username: auth.info.nickname,
+      avatar_url: auth.info.image
     }
   end
 

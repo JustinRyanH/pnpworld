@@ -10,7 +10,10 @@
      More Authorization Options will come
   </p>
   <hr class="mb-4"/>
-  <%= button_to user_google_oauth2_omniauth_authorize_path, method: :post, data: { turbo: "false" }, class: "hover:drop-shadow" do %>
-    <%= image_tag "btn_google_signin_dark_normal_web.png" %>
+  <%= button_to user_google_oauth2_omniauth_authorize_path, method: :post, data: { turbo: "false" }, class: "hover:drop-shadow rounded bg-blue-700 px-2 my-2" do %>
+    Login with Google
+  <% end %>
+  <%= button_to user_github_omniauth_authorize_path, method: :post, data: { turbo: "false" }, class: "hover:drop-shadow rounded bg-blue-700 px-2 my-2" do %>
+    Login with Github
   <% end %>
 <% end %>
