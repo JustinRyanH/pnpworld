@@ -10,10 +10,12 @@ class User < ApplicationRecord
   def self.from_github(email:, username:, uid:, avatar_url:)
     user = find_by(github_uid: uid)
 
-    if user.nil?
-      return create_with(uid: uid, username: username, avatar_url: avatar_url).find_or_create_by!(email: email)
+    if user.present?
+      user.update_attributes(email: email, username: username, avatar_url: avatar_url)
+      return userkkk
     end
-
-    user
+    if user.nil?
+      return create_with(github_uid: uid, username: username, avatar_url: avatar_url).find_or_create_by!(email: email)
+    end
   end
 end
