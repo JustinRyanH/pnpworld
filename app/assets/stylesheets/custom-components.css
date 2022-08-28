@@ -31,5 +31,5 @@
 }
 
 .active-nav-btn {
-    @apply font-bold bg-blue-900 md:text-blue-700 md:bg-transparent
+    @apply font-bold bg-blue-900 md:text-blue-700 md:dark:text-blue-300 md:bg-transparent
 }
