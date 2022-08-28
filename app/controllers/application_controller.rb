@@ -37,4 +37,8 @@ class ApplicationController < ActionController::Base
   def use_navigation
     @use_navigation = true
   end
+
+  def current_user
+    super
+  end
 end
