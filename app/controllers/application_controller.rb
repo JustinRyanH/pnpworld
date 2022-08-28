@@ -19,12 +19,12 @@ class ApplicationController < ActionController::Base
   end
 
   def home_btn
-    NavigationBtn.new(link: root_path, text: 'Home')
+    NavigationBtn.new(link: root_path, text: I18n.t('routes.root'))
   end
 
   def login_logout_btn
-    return NavigationBtn.new(link: destroy_user_session_path, text: 'Logout') if @current_user.present?
-    NavigationBtn.new(link: new_user_session_path, text: 'Login')
+    return NavigationBtn.new(link: destroy_user_session_path, text: I18n.t('routes.user_session.destroy')) if @current_user.present?
+    NavigationBtn.new(link: new_user_session_path, text: I18n.t('routes.user_session.new'))
   end
 
   def set_live_reload
