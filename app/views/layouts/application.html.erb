@@ -21,12 +21,11 @@
       <span class="self-center mx-2 text-xl font-semibold whitespace-nowrap dark:text-white">PnP World</span>
     </a>
   <% end %> %>
-  <% navbar.with_link do %>
-    <%= render NavbarButtonComponent.new(active: true, href: root_path) do %>
-      Home
-    <% end %>
-    <%= render NavbarButtonComponent.new(active: false, href: new_user_session_path) do %>
-      Login
+  <%= navigation_buttons.each do |btn| %>
+    <% navbar.with_link do %>
+      <%= render NavbarButtonComponent.new(active: btn.active, href: btn.link) do %>
+        <%= btn.text %>
+      <% end %>
     <% end %>
   <% end %>
 <% end %>
