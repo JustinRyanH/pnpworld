@@ -13,6 +13,12 @@ class SectionComponentPreview < ViewComponent::Preview
     end
   end
 
+  def section_with_center
+    render SectionComponent.new(classname: "drop-shadow-xl bg-amber-200/10", center: true) do
+      '<p>Paragraph</p>'.html_safe
+    end
+  end
+
   def section_with_accessible_label_id
   end
 end
