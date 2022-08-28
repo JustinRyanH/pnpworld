@@ -23,10 +23,11 @@ class ApplicationController < ActionController::Base
   end
 
   def login_logout_btn
-    destroy_link = url_for(controller: 'users/sessions', action: 'destroy')
-    new_link = url_for(controller: 'users/sessions', action: 'new')
-    return NavigationBtn.new(link: destroy_link, text: I18n.t('routes.user_session.destroy')) if @current_user.present?
-    NavigationBtn.new(link: new_link, text: I18n.t('routes.user_session.new'))
+    controller = 'users/sessions'
+    action = @current_user.present? ? 'destroy' : 'new'
+    link = url_for(controller: controller, action: action)
+    return NavigationBtn.new(link: link, text: I18n.t('routes.user/session.destroy')) if @current_user.present?
+    NavigationBtn.new(link: link, text: I18n.t('routes.user/session.new'))
   end
 
   def set_live_reload

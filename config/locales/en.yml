@@ -32,7 +32,7 @@
 en:
   routes:
     root: 'Home'
-    user_session:
+    user/session:
       destroy: 'Logout'
       new: 'Login'
   hello: "Hello world"
