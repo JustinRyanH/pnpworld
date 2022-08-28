@@ -1,3 +1,16 @@
-<%= button_to user_google_oauth2_omniauth_authorize_path, method: :post, data: { turbo: "false" }, class: "hover:drop-shadow" do %>
-  <%= image_tag "btn_google_signin_dark_normal_web.png" %>
+<%= render SectionComponent.new(label_id: 'login-info') do %>
+  <%= render HeaderComponent.new(id: 'login-info', classname: 'mb-4') do %>
+    Login is Required
+  <% end %>
+  <p class="m-2">
+    An account is required to use features provided by Pnp World.
+    Logging in with Google with automatically create an account.
+  </p>
+  <p class="m-2">
+     More Authorization Options will come
+  </p>
+  <hr class="mb-4"/>
+  <%= button_to user_google_oauth2_omniauth_authorize_path, method: :post, data: { turbo: "false" }, class: "hover:drop-shadow" do %>
+    <%= image_tag "btn_google_signin_dark_normal_web.png" %>
+  <% end %>
 <% end %>

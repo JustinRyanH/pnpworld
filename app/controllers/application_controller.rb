@@ -2,11 +2,13 @@
 
 class ApplicationController < ActionController::Base
   before_action :set_live_reload
-  before_action :navigation_buttons
+  before_action :use_navigation
 
   NavigationBtn = Struct.new(:active, :link, :text, keyword_init: true)
 
   private
+
+  helper_method :navigation_buttons
 
   # @return [Array<NavigationBtn>]
   def navigation_buttons
@@ -24,5 +26,9 @@ class ApplicationController < ActionController::Base
 
   def set_live_reload
     @live_reload = true
+  end
+
+  def use_navigation
+    @use_navigation = true
   end
 end
