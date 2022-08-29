@@ -35,6 +35,7 @@ class ApplicationController < ActionController::Base
 
   def link_for_index(controller)
     return root_path if controller === 'root'
+
     url_for(controller: controller.to_sym, action: :index, only_path: true)
   end
 
@@ -45,7 +46,7 @@ class ApplicationController < ActionController::Base
   end
 
   def active_for_action(controller, action)
-    return request.path === url_for(controller: controller.to_sym, action:, only_path: true)
+    request.path === url_for(controller: controller.to_sym, action:, only_path: true)
   end
 
   def set_live_reload
