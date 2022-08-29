@@ -28,6 +28,7 @@ class CharactersController < ApplicationController
       if @character.save
         format.html { redirect_to character_url(@character), success: "Character was successfully created." }
         format.json { render :show, status: :created, location: @character }
+        format.turbo_stream
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @character.errors, status: :unprocessable_entity }
