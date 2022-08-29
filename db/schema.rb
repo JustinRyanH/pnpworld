@@ -22,7 +22,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_28_211001) do
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
     t.string "username", null: false
-    t.string "uid"
+    t.string "google_uid"
     t.string "avatar_url"
     t.integer "sign_in_count", default: 0, null: false
     t.datetime "current_sign_in_at"
@@ -33,6 +33,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_28_211001) do
     t.datetime "updated_at", null: false
     t.string "github_uid"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["google_uid"], name: "index_users_on_google_uid", unique: true
   end
 
   add_foreign_key "characters", "users", column: "keeper_id"
