@@ -6,6 +6,7 @@
 - [ ] Character Only showing the users
 - [ ] The Navbar Active route should be inclusive of subpages
 - [ ] Adminstrate
+- [ ] Replace Alert with Turbo Toast - https://gorails.com/episodes/hotwire-flash-messages
 
 ## Icebox
 
