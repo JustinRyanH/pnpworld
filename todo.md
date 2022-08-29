@@ -10,6 +10,7 @@
 
 ## Icebox
 
+- [ ] Allow user to change Email/Avatar if they login through another Oauth
 - [ ] If the user has Avatar Img show that, otherwise show hero icon
 - [ ] Better Google login Button
 - [ ] One Time Password Oauth Option
