@@ -20,4 +20,10 @@ class CharacterTest < ActiveSupport::TestCase
     refute character_with_whitespace_name.valid?
     assert_not_empty character_with_whitespace_name.errors[:name]
   end
+
+  test 'requires a keeper for character' do
+    character_without_keeper = Character.new(name: 'Jim')
+    refute character_without_keeper.valid?
+    assert_not_empty character_without_keeper.errors[:keeper]
+  end
 end
