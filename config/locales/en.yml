@@ -30,6 +30,11 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  alerts:
+    info: Info!
+    danger: Critical!
+    success: Success!
+    warning: Warning!
   navbar:
     root: 'Home'
     characters: 'Characters'
