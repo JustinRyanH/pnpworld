@@ -3,14 +3,14 @@
     Characters
   <% end %>
 
-  <div id="characters">
-    <% @characters.each do |character| %>
-      <%= render character %>
-      <p>
-        <%= link_to "Show this character", character %>
-      </p>
-    <% end %>
+  <div class="w-full max-w-2xl py-8 px-4 border rounded shadow-sm bg-neutral-200 dark:bg-neutral-600">
+    <div class="py-2 px-4">
+      <%=  render "form",  character: Character.new %>
+    </div>
+    <ul id="characters">
+      <% @characters.each do |character| %>
+        <%= render character %>
+      <% end %>
+    </ul>
   </div>
-
-  <%= link_to "New character", new_character_path %>
 <% end %>

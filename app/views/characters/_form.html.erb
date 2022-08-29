@@ -1,6 +1,6 @@
 <%= form_with(model: character) do |form| %>
   <% if character.errors.any? %>
-    <div style="color: red">
+    <div>
       <h2><%= pluralize(character.errors.count, "error") %> prohibited this character from being saved:</h2>
 
       <ul>
@@ -11,12 +11,9 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+  <div class="flex flex-col">
+    <%= form.label :name, class: 'sr-only' %>
+    <%= form.text_field :name, class: 'px-2 py-1 my-1 block rounded-none rounded-1-md sm:text-sm border-gray-300', placeholder: 'Their Name' %>
+    <%= form.submit class: '-ml-px relative px-4 py-2 border border-blue-600 text-sm font-medium rounded-r-md text-white bg-blue-600 hover:bg-blue-700' %>
   </div>
 <% end %>
