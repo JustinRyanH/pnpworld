@@ -24,10 +24,11 @@ class ApplicationController < ActionController::Base
     if action.nil?
       text = I18n.t(['navbar', controller].join('.'))
       link = link_for_index(controller)
+      active = active_for_index(controller)
     else
-      link = url_for(controller: controller.to_sym, action:, only_path: true)
       text = I18n.t ['navbar', controller, action].join('.')
-      active = false
+      link = url_for(controller: controller.to_sym, action:, only_path: true)
+      active = active_for_action(controller, action)
     end
     NavigationBtn.new(link:, text:, active:)
   end
@@ -35,6 +36,16 @@ class ApplicationController < ActionController::Base
   def link_for_index(controller)
     return root_path if controller === 'root'
     url_for(controller: controller.to_sym, action: :index, only_path: true)
+  end
+
+  def active_for_index(controller)
+    return request.path === link_for_index(controller) if controller === 'root'
+
+    request.path.include?(link_for_index(controller))
+  end
+
+  def active_for_action(controller, action)
+    return request.path === url_for(controller: controller.to_sym, action:, only_path: true)
   end
 
   def set_live_reload
