@@ -33,3 +33,8 @@
 .active-nav-btn {
     @apply font-bold bg-blue-900 md:text-blue-700 md:dark:text-blue-300 md:bg-transparent
 }
+
+
+.alert-container {
+    @apply flex p-4 mb-4 text-sm rounded-lg;
+}
