@@ -7,17 +7,19 @@ class User < ApplicationRecord
 
   def self.from_google(email:, username:, uid:, avatar_url:)
     user = find_by(google_uid: uid)
-    user = find_by(email: email) unless user.present?
+    user = find_by(email:) unless user.present?
 
-    return user.update_attributes(email:, google_uid:, username:, avatar_url:) if user.present?
-    return create_with(google_uid: uid, username:, avatar_url:).find_or_create_by!(email:) if user.nil?
+    user.update(email:, google_uid: uid, username:, avatar_url:) if user.present?
+    user = create_with(google_uid: uid, username:, avatar_url:).find_or_create_by!(email:) if user.nil?
+    user
   end
 
   def self.from_github(email:, username:, uid:, avatar_url:)
     user = find_by(github_uid: uid)
-    user = find_by(email: email) unless user.present?
+    user = find_by(email:) unless user.present?
 
-    return user.update_attributes(email:, github_uid:, username:, avatar_url:) if user.present?
-    return create_with(github_uid: uid, username:, avatar_url:).find_or_create_by!(email:) if user.nil?
+    user.update(email:, github_uid: uid, username:, avatar_url:) if user.present?
+    user = create_with(github_uid: uid, username:, avatar_url:).find_or_create_by!(email:) if user.nil?
+    user
   end
 end
