@@ -4,6 +4,7 @@ class AlertComponent < ViewComponent::Base
   def self.rails_flash_to_kind(flash)
     return :info if flash === :notice
     return :danger if flash === :alert
+    flash.to_sym
   end
 
   # @param [Symbol] kind one of the following, `:info`, `:warning`, `:success`, `:danger`

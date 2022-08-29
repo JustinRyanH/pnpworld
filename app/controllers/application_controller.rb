@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
+  add_flash_types :info, :danger, :warning, :success
   before_action :set_live_reload
   before_action :use_navigation
 
