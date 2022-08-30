@@ -3,10 +3,10 @@
 require "test_helper"
 
 class ModalComponentTest < ViewComponent::TestCase
-  def test_component_renders_something_useful
-    # assert_equal(
-    #   %(<span>Hello, components!</span>),
-    #   render_inline(ModalComponent.new(message: "Hello, components!")).css("span").to_html
-    # )
+  def test_can_be_labelled_by_header
+    render_preview(:modal_with_body_header)
+
+    assert_selector('[role="dialog"][aria-labelledby="label-id"]')
+    assert_selector('h1#label-id')
   end
 end

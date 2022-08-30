@@ -1,6 +1,8 @@
-<%= render ModalComponent.new do |modal| %>
+<%= render ModalComponent.new(label_id: "label-id") do |modal| %>
   <% modal.with_header do %>
-    Test Header
+    <%= render HeaderComponent.new(id: 'label-id') do %>
+      Test Header
+    <% end %>
   <% end %>
 
   <% modal.with_body do %>
