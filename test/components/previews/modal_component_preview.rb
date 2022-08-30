@@ -7,4 +7,7 @@ class ModalComponentPreview < ViewComponent::Preview
   end
   def modal_with_body
   end
+
+  def modal_with_body_header_no_close
+  end
 end

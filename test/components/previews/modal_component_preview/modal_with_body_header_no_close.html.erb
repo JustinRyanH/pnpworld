@@ -1,0 +1,9 @@
+<%= render ModalComponent.new(has_close_button: false) do |modal| %>
+  <% modal.with_header do %>
+    Test Header
+  <% end %>
+
+  <% modal.with_body do %>
+    Test Body
+  <% end %>
+<% end %>
