@@ -1,3 +1,4 @@
+<%= turbo_frame_tag "modal" do %>
 <%= render SectionComponent.new(label_id: 'characters-header') do %>
   <%= render HeaderComponent.new(id: 'characters-header') do %>
     Character
@@ -12,4 +13,4 @@
     <%= button_to "Destroy this character", @character, method: :delete %>
   </div>
 <% end %>
-
+<% end %>
