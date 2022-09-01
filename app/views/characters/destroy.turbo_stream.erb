@@ -1,2 +1,4 @@
 <%= turbo_stream.remove("#{dom_id(@character)}_container") %>
-<%= turbo_stream.remove("#{dom_id(@character)}_show") %>
+<%= turbo_stream.replace("modal") do %>
+  <%= turbo_frame_tag "modal" %>
+<% end %>
