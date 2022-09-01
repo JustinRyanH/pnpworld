@@ -61,7 +61,7 @@ class CharactersController < ApplicationController
     @character.destroy
 
     respond_to do |format|
-      format.turbo_stream { render turbo_stream: turbo_stream.remove("#{helpers.dom_id(@character)}_container") }
+      format.turbo_stream
       format.html { redirect_to characters_url, success: 'Character was successfully destroyed.' }
       format.json { head :no_content }
     end
