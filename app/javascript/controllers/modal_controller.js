@@ -12,6 +12,7 @@ export default class extends Controller {
   }
 
   close() {
+    this.element.parentElement.removeAttribute('src');
     this.element.remove();
   }
 
