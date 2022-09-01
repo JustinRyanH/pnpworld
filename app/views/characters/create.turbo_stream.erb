@@ -1,4 +1,4 @@
-<%= turbo_stream.prepend "characters" do %>
+<%= turbo_stream.append "characters" do %>
   <%= render "character", character: @character %>
 <% end %>
 <%= turbo_stream.replace "#{dom_id(Character.new)}_form" do %>
