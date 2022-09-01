@@ -7,10 +7,10 @@
     <div class="py-2 px-4">
       <%=  render "form",  character: Character.new %>
     </div>
-    <ul id="characters">
-      <% @characters.each do |character| %>
-        <%= render character %>
-      <% end %>
-    </ul>
   </div>
+  <ul id="characters">
+    <% @characters.each do |character| %>
+      <%= render character %>
+    <% end %>
+  </ul>
 <% end %>
