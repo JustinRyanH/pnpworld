@@ -1,16 +1,16 @@
 <%= turbo_frame_tag "modal" do %>
-<%= render SectionComponent.new(label_id: 'characters-header') do %>
-  <%= render HeaderComponent.new(id: 'characters-header') do %>
-    Character
+  <%= render ModalComponent.new(label_id: 'character-header') do |modal| %>
+    <% modal.with_header do %>
+      <%= render HeaderComponent.new(id: 'characters-header') do %>
+        Character
+      <% end %>
+    <% end %> %>
+    <% modal.with_body do %>
+      Name: <%= @character.name %>
+    <% end %>
+
+    <% modal.with_footer do %>
+      <%= button_to "Destroy this character", @character, method: :delete %>
+    <% end %>
   <% end %>
-
-  <%= render @character %>
-
-  <div>
-    <%= link_to "Edit this character", edit_character_path(@character) %> |
-    <%= link_to "Back to characters", characters_path %>
-
-    <%= button_to "Destroy this character", @character, method: :delete %>
-  </div>
-<% end %>
 <% end %>
