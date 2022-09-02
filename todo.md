@@ -7,7 +7,8 @@
 - [x] The Navbar Active route should be inclusive of subpages
 - [ ] Adminstrate
 - [ ] Replace Alert with Turbo Toast - https://gorails.com/episodes/hotwire-flash-messages
-- [ ] Create Error Component
+- [ ] Create Error Stimulus Component (Inputs get validation errors)
+- [ ] Internationalize all notices
 
 ## Icebox
 
