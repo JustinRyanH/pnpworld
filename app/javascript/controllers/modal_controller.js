@@ -18,7 +18,7 @@ export default class extends Controller {
 
   reRoute() {
     if (!this.closeTo) return;
-    Turbo.visit(this.closeTo, { action: 'replace' });
+    history.replaceState({}, '', this.closeTo);
   }
 
   close = () => {
