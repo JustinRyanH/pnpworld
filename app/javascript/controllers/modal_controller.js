@@ -12,7 +12,7 @@ export default class extends Controller {
   disconnect() {
     document.body.removeEventListener('click', this.onClickAway);
     this.parent.removeAttribute('src');
-    if (this.closeTo) Turbo.visit(this.closeTo);
+    if (this.closeTo) Turbo.visit(this.closeTo, { action: 'replace' });
   }
 
   close = () => {
