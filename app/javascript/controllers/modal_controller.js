@@ -12,7 +12,9 @@ export default class extends Controller {
   }
 
   close() {
-    this.element.parentElement.removeAttribute('src');
+    const src = this.parent.getAttribute('src');
+    if (src === location.href) history.back();
+    this.parent.removeAttribute('src');
     this.element.remove();
   }
 
@@ -21,4 +23,11 @@ export default class extends Controller {
       this.close()
     }
   };
+
+  /**
+   * @return {Element}
+   */
+  get parent() {
+    return this.element.parentElement;
+  }
 }
