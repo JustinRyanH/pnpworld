@@ -11,6 +11,8 @@ class SectionComponent < ViewComponent::Base
 
   private
 
+  attr_reader :label_id
+
   def labelled_by
     return nil if @label_id.nil?
     "aria-labelledby=\"#{@label_id}\"".html_safe
