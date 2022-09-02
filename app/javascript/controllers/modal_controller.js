@@ -13,7 +13,12 @@ export default class extends Controller {
 
   disconnect() {
     this.parent.removeAttribute('src');
-    if (this.closeTo) Turbo.visit(this.closeTo, { action: 'replace' });
+    this.reRoute();
+  }
+
+  reRoute() {
+    if (!this.closeTo) return;
+    Turbo.visit(this.closeTo, { action: 'replace' });
   }
 
   close = () => {
