@@ -15,7 +15,8 @@ export default class extends Controller {
   }
 
   close = () => {
-    this.element.remove();
+    this.element.addEventListener('transitionend', (event) => this.element.remove());
+    this.element.classList.add('fade-out');
   };
 
   onKeyUp = (event) => {

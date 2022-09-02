@@ -9,3 +9,7 @@
 input:not([type="submit"]) {
     @apply text-neutral-700;
 }
+
+.fade-out {
+    @apply transition duration-200 ease-in-out opacity-0;
+}
