@@ -6,7 +6,7 @@
     close_to: characters_path,
   ) do |modal| %>
     <% modal.with_header do %>
-      <%= render HeaderComponent.new(level: 2, id: 'characters-header') do %>
+      <%= render HeaderComponent.new(level: 2, id: 'characters-header', classname: "pb-2 ml-2") do %>
         <%= @character.name %>
       <% end %>
     <% end %> %>
