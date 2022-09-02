@@ -5,6 +5,7 @@ const closeKeys = ['Escape'];
 export default class extends Controller {
   static targets = ['mainPanel']
   connect() {
+    this.element.addEventListener('animationend', this.onAnimationEnd);
     this.parent = this.element.parentElement;
     this.closeTo = this.element.dataset.closeTo;
   }
@@ -30,4 +31,13 @@ export default class extends Controller {
       this.close()
     }
   };
+
+  onAnimationEnd = (event) => {
+    if (event.animationName === 'fade-in-animation') {
+      this.element.classList.remove('fade-in')
+    }
+    if (event.animationName === 'fade-out-animation') {
+      this.element.remove();
+    }
+  }
 }
