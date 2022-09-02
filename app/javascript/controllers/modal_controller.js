@@ -1,5 +1,6 @@
 import { Controller } from "@hotwired/stimulus"
 
+const closeKeys = ['Escape'];
 // Connects to data-controller="modal"
 export default class extends Controller {
   static targets = ['mainPanel']
@@ -17,8 +18,9 @@ export default class extends Controller {
     this.element.remove();
   };
 
-  onKeyPress = (event) => {
-    console.log(event);
+  onKeyUp = (event) => {
+    if (!closeKeys.includes(event.key)) return;
+    this.close();
   }
 
 
