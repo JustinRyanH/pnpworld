@@ -5,6 +5,7 @@ const closeKeys = ['Escape'];
 export default class extends Controller {
   static targets = ['mainPanel']
   connect() {
+    document.addEventListener("turbo:before-stream-render", this.#streamAnimate);
     this.element.addEventListener('animationend', this.onAnimationEnd);
     this.parent = this.element.parentElement;
     this.closeTo = this.element.dataset.closeTo;
@@ -37,6 +38,14 @@ export default class extends Controller {
     }
     if (event.animationName === 'fade-out-animation') {
       this.element.remove();
+    }
+  }
+
+  #streamAnimate = (event) => {
+    const target = document.getElementById(event.target.target)
+    if (target === this.element) {
+      event.preventDefault();
+      this.close();
     }
   }
 }
