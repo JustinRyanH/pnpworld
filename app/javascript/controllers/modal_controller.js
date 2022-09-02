@@ -6,11 +6,9 @@ export default class extends Controller {
   connect() {
     this.parent = this.element.parentElement;
     this.closeTo = this.element.dataset.closeTo;
-    document.body.addEventListener('click', this.onClickAway);
   }
 
   disconnect() {
-    document.body.removeEventListener('click', this.onClickAway);
     this.parent.removeAttribute('src');
     if (this.closeTo) Turbo.visit(this.closeTo, { action: 'replace' });
   }
@@ -18,6 +16,11 @@ export default class extends Controller {
   close = () => {
     this.element.remove();
   };
+
+  onKeyPress = (event) => {
+    console.log(event);
+  }
+
 
   onClickAway = event => {
     if (!this.mainPanelTarget.contains(event.target)) {
