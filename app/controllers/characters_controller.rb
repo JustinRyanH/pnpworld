@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class CharactersController < ApplicationController
-  before_action :set_character, only: %i[show edit update destroy]
+  before_action :set_character, only: %i[edit update destroy]
   before_action :authenticate_user!
 
   # GET /characters or /characters.json
@@ -12,12 +12,17 @@ class CharactersController < ApplicationController
   # GET /characters/1 or /characters/1.json
   def show
     respond_to do |format|
-      format.js
-      format.html do
-        @characters = Character.all
-        render :show
+      if character.present?
+        format.js
+        format.html do
+          @characters = Character.all
+          render :show
+        end
+        format.turbo_stream
+      else
+        format.js
+        format.html { redirect_to characters_url, danger: 'Character does not exist' }
       end
-      format.turbo_stream
     end
   end
 
@@ -55,19 +60,19 @@ class CharactersController < ApplicationController
   # PATCH/PUT /characters/1 or /characters/1.json
   def update
     respond_to do |format|
-      if @character.update(character_params)
-        format.html { redirect_to character_url(@character), success: 'Character was successfully updated.' }
-        format.json { render :show, status: :ok, location: @character }
+      if character.update(character_params)
+        format.html { redirect_to character_url(character), success: 'Character was successfully updated.' }
+        format.json { render :show, status: :ok, location: character }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @character.errors, status: :unprocessable_entity }
+        format.json { render json: character.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # DELETE /characters/1 or /characters/1.json
   def destroy
-    @character.destroy
+    character.destroy
 
     respond_to do |format|
       format.turbo_stream
@@ -81,6 +86,10 @@ class CharactersController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_character
     @character = Character.find(params[:id])
+  end
+
+  def character
+    @character ||= Character.find_by(id: params[:id])
   end
 
   # Only allow a list of trusted parameters through.
