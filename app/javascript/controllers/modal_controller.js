@@ -5,13 +5,14 @@ export default class extends Controller {
   static targets = ['mainPanel']
   connect() {
     this.parent = this.element.parentElement;
+    this.closeTo = this.element.dataset.closeTo;
     document.body.addEventListener('click', this.onClickAway);
   }
 
   disconnect() {
     document.body.removeEventListener('click', this.onClickAway);
-    console.log('disconect', this.parent);
     this.parent.removeAttribute('src');
+    if (this.closeTo) Turbo.visit(this.closeTo);
   }
 
   close = () => {
