@@ -3,15 +3,16 @@
 class SectionComponent < ViewComponent::Base
   include ClassHelper
 
-  def initialize(classname: '', label_id: nil, center: false)
+  def initialize(classname: '', label_id: nil, center: false, data: nil)
     @classname = classname
     @label_id = label_id
     @center = center
+    @data = data
   end
 
   private
 
-  attr_reader :label_id
+  attr_reader :label_id, :data
 
   def labelled_by
     return nil if @label_id.nil?

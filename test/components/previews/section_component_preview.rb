@@ -21,4 +21,10 @@ class SectionComponentPreview < ViewComponent::Preview
 
   def section_with_accessible_label_id
   end
+
+  def section_with_data
+    render SectionComponent.new(data: { example: 'test' }) do
+      '<p>Paragraph</p>'.html_safe
+    end
+  end
 end

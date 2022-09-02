@@ -16,4 +16,9 @@ class SectionComponentTest < ViewComponent::TestCase
     section = page.find('section')
     assert_equal 'a-label', section['aria-labelledby']
   end
+
+  def test_adding_data_attributes_to_section
+    render_preview(:section_with_data)
+    assert_selector('section[data-example="test"]')
+  end
 end
