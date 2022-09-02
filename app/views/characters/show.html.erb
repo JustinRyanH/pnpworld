@@ -1,3 +1,4 @@
+<%= render 'page' %>
 <%= turbo_frame_tag "modal" do %>
   <%= render ModalComponent.new(id: "#{dom_id(@character)}_show", label_id: 'character-header') do |modal| %>
     <% modal.with_header do %>

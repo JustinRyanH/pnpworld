@@ -1,16 +1,1 @@
-<%= render SectionComponent.new(label_id: 'characters-header') do %>
-  <%= render HeaderComponent.new(id: 'characters-header') do %>
-    Characters
-  <% end %>
-
-  <div class="w-full max-w-2xl py-8 px-4 border rounded shadow-sm bg-neutral-200 dark:bg-neutral-600">
-    <div class="py-2 px-4">
-      <%=  render "form",  character: Character.new %>
-    </div>
-  </div>
-  <ul id="characters">
-    <% @characters.each do |character| %>
-      <%= render character %>
-    <% end %>
-  </ul>
-<% end %>
+<%= render 'page' %>

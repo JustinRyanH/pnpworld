@@ -10,7 +10,16 @@ class CharactersController < ApplicationController
   end
 
   # GET /characters/1 or /characters/1.json
-  def show; end
+  def show
+    respond_to do |format|
+      format.js
+      format.html do
+        @characters = Character.all
+        render :show
+      end
+      format.turbo_stream
+    end
+  end
 
   # GET /characters/new
   def new
