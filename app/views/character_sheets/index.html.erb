@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Character sheets</h1>
+
+<div id="character_sheets">
+  <% @character_sheets.each do |character_sheet| %>
+    <%= render character_sheet %>
+    <p>
+      <%= link_to "Show this character sheet", character_sheets_path(@character) %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New character sheet", new_character_sheet_path(@character) %>

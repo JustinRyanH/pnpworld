@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @character_sheet %>
+
+<div>
+  <%= link_to "Edit this character sheet", edit_character_sheet_path(@character_sheet) %> |
+  <%= link_to "Back to character sheets", character_sheets_path %>
+
+  <%= button_to "Destroy this character sheet", @character_sheet, method: :delete %>
+</div>

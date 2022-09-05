@@ -1,0 +1,42 @@
+<%= form_with(model: character_sheet) do |form| %>
+  <% if character_sheet.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(character_sheet.errors.count, "error") %> prohibited this character_sheet from being saved:</h2>
+
+      <ul>
+        <% character_sheet.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :keeper_id, style: "display: block" %>
+    <%= form.text_field :keeper_id %>
+  </div>
+
+  <div>
+    <%= form.label :character_id, style: "display: block" %>
+    <%= form.text_field :character_id %>
+  </div>
+
+  <div>
+    <%= form.label :level, style: "display: block" %>
+    <%= form.number_field :level %>
+  </div>
+
+  <div>
+    <%= form.label :data, style: "display: block" %>
+    <%= form.text_field :data %>
+  </div>
+
+  <div>
+    <%= form.label :version, style: "display: block" %>
+    <%= form.number_field :version %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

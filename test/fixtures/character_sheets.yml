@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+adthran:
+  keeper: example_player
+  character: adthran
+  level: 1
+  data:
+  version: 1
+
+galbrek:
+  keeper: example_player
+  character: galbrek
+  level: 1
+  data:
+  version: 1
+
+urmryl:
+  keeper: example_player
+  character: urmryl
+  level: 1
+  data:
+  version: 1

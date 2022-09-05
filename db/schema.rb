@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_28_211001) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_03_192623) do
+  create_table "character_sheets", force: :cascade do |t|
+    t.integer "keeper_id", null: false
+    t.integer "character_id", null: false
+    t.integer "level"
+    t.json "data"
+    t.integer "version"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["character_id"], name: "index_character_sheets_on_character_id"
+    t.index ["keeper_id"], name: "index_character_sheets_on_keeper_id"
+  end
+
   create_table "characters", force: :cascade do |t|
     t.string "name", null: false
     t.integer "keeper_id"
@@ -36,5 +48,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_28_211001) do
     t.index ["google_uid"], name: "index_users_on_google_uid", unique: true
   end
 
+  add_foreign_key "character_sheets", "characters"
+  add_foreign_key "character_sheets", "users", column: "keeper_id"
   add_foreign_key "characters", "users", column: "keeper_id"
 end
