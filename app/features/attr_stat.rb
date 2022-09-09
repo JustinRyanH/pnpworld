@@ -1,4 +1,4 @@
-module Sheets::AttrStat
+module AttrStat
   def attr_stat(kind, *attrs)
     attrs.each do |attr|
       instance_for_attr = "@#{attr}"

@@ -2,13 +2,13 @@
 
 require 'test_helper'
 
-class DungeonWorldTest < ActiveSupport::TestCase
+class CharacterSheetTest < ActiveSupport::TestCase
   setup do
-    @example_sheet = Sheets::DungeonWorld.new(
+    @example_sheet = DungeonWorld::CharacterSheet.new(
       max_hit_points: 10,
       damage: 'd8',
       level: 1,
-      stats: Sheets::DungeonWorld::Stats.new(
+      stats: DungeonWorld::Stats.new(
         charisma: 8,
         wisdom: 9,
         intelligence: 12,
