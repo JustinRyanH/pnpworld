@@ -30,4 +30,21 @@ class DungeonWorldTest < ActiveSupport::TestCase
     assert_equal(15, @example_sheet.stats.dexterity)
     assert_equal(16, @example_sheet.stats.strength)
   end
+
+  test "to_h" do
+    expected_hash = {
+      "max_hit_points" => 10,
+      "level" => 1,
+      "damage" => "d8",
+      "stats" => {
+        "strength" => 16,
+        "dexterity" => 15,
+        "constitution" => 13,
+        "intelligence" => 12,
+        "wisdom" => 9,
+        "charisma" => 8
+      }
+    }
+    assert_equal(expected_hash, @example_sheet.as_json)
+  end
 end
