@@ -27,6 +27,11 @@ class DungeonWorldTest < ActiveSupport::TestCase
 
   test "stats" do
     assert_equal(8, @example_sheet.stats.charisma.value)
+    assert_equal(9, @example_sheet.stats.wisdom.value)
+    assert_equal(12, @example_sheet.stats.intelligence.value)
+    assert_equal(13, @example_sheet.stats.constitution.value)
+    assert_equal(15, @example_sheet.stats.dexterity.value)
+    assert_equal(16, @example_sheet.stats.strength.value)
   end
 
   test "as_json" do
