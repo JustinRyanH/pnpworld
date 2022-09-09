@@ -3,8 +3,8 @@
 require 'test_helper'
 
 class DungeonWorldTest < ActiveSupport::TestCase
-  test "initialize" do
-    struct = Sheets::DungeonWorld.new(
+  setup do
+    @example_sheet = Sheets::DungeonWorld.new(
       max_hit_points: 10,
       damage: 'd8',
       level: 1,
@@ -17,7 +17,9 @@ class DungeonWorldTest < ActiveSupport::TestCase
         charisma: 8
       }
     )
+  end
 
+  test "attributes" do
     assert_equal(10, struct.max_hit_points)
     assert_equal('d8', struct.damage)
     assert_equal(1, struct.level)
