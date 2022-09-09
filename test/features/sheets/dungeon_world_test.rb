@@ -8,26 +8,26 @@ class DungeonWorldTest < ActiveSupport::TestCase
       max_hit_points: 10,
       damage: 'd8',
       level: 1,
-      stats: {
-        strength: 16,
-        dexterity: 15,
-        constitution: 13,
-        intelligence: 12,
+      stats: Sheets::DungeonWorld::Stats.new(
+        charisma: 8,
         wisdom: 9,
-        charisma: 8
-      }
+        intelligence: 12,
+        constitution: 13,
+        dexterity: 15,
+        strength: 16
+      )
     )
   end
 
   test "attributes" do
-    assert_equal(10, struct.max_hit_points)
-    assert_equal('d8', struct.damage)
-    assert_equal(1, struct.level)
-    assert_equal(8, struct.stats.charisma)
-    assert_equal(9, struct.stats.wisdom)
-    assert_equal(12, struct.stats.intelligence)
-    assert_equal(13, struct.stats.constitution)
-    assert_equal(15, struct.stats.dexterity)
-    assert_equal(8, struct.stats.charisma)
+    assert_equal(10, @example_sheet.max_hit_points)
+    assert_equal('d8', @example_sheet.damage)
+    assert_equal(1, @example_sheet.level)
+    assert_equal(8, @example_sheet.stats.charisma)
+    assert_equal(9, @example_sheet.stats.wisdom)
+    assert_equal(12, @example_sheet.stats.intelligence)
+    assert_equal(13, @example_sheet.stats.constitution)
+    assert_equal(15, @example_sheet.stats.dexterity)
+    assert_equal(16, @example_sheet.stats.strength)
   end
 end
