@@ -23,15 +23,13 @@ class DungeonWorldTest < ActiveSupport::TestCase
     assert_equal(10, @example_sheet.max_hit_points)
     assert_equal('d8', @example_sheet.damage)
     assert_equal(1, @example_sheet.level)
-    assert_equal(8, @example_sheet.stats.charisma)
-    assert_equal(9, @example_sheet.stats.wisdom)
-    assert_equal(12, @example_sheet.stats.intelligence)
-    assert_equal(13, @example_sheet.stats.constitution)
-    assert_equal(15, @example_sheet.stats.dexterity)
-    assert_equal(16, @example_sheet.stats.strength)
   end
 
-  test "to_h" do
+  test "stats" do
+    assert_equal(8, @example_sheet.stats.charisma.value)
+  end
+
+  test "as_json" do
     expected_hash = {
       "max_hit_points" => 10,
       "level" => 1,
