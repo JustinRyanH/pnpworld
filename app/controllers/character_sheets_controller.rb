@@ -5,16 +5,11 @@ class CharacterSheetsController < ApplicationController
 
   # GET /character_sheets or /character_sheets.json
   def index
-    @character_sheets = CharacterSheet.all
+    @character_sheets = character.sheets.all
   end
 
   # GET /character_sheets/1 or /character_sheets/1.json
   def show
-  end
-
-  # GET /character_sheets/new
-  def new
-    @character_sheet = CharacterSheet.new
   end
 
   # GET /character_sheets/1/edit
@@ -32,7 +27,6 @@ class CharacterSheetsController < ApplicationController
         format.html { redirect_to character_sheets_url(@character, @character_sheet), notice: "Character sheet was successfully created." }
         format.json { render :show, status: :created, location: @character_sheet }
       else
-        format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @character_sheet.errors, status: :unprocessable_entity }
       end
     end

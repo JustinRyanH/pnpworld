@@ -1,14 +1,26 @@
-<p style="color: green"><%= notice %></p>
+<%= render HeaderComponent.new(level: 2) do %>
+  Character sheets
+<% end %>
 
-<h1>Character sheets</h1>
+<div id="character_sheet" class="p-2">
+<% if @character_sheets.empty? %>
 
-<div id="character_sheets">
-  <% @character_sheets.each do |character_sheet| %>
-    <%= render character_sheet %>
-    <p>
-      <%= link_to "Show this character sheet", character_sheets_path(@character) %>
-    </p>
-  <% end %>
+  <%= link_to "Create Barbarian", "", class: "btn-default" %>
+  <%= link_to "Create Bard", "", class: "btn-default" %>
+  <%= link_to "Create Cleric", "", class: "btn-default" %>
+  <%= link_to "Create Druid", "", class: "btn-default" %>
+  <%= link_to "Create Fighter", "", class: "btn-default" %>
+  <%= link_to "Create Immolator", "", class: "btn-default" %>
+  <%= link_to "Create Paladin", "", class: "btn-default" %>
+  <%= link_to "Create Ranger", "", class: "btn-default" %>
+  <%= link_to "Create Thief", "", class: "btn-default" %>
+  <%= link_to "Create Wizard", "", class: "btn-default" %>
+<% else %>
+    <% @character_sheets.each do |character_sheet| %>
+      <%= render character_sheet %>
+      <p>
+        <%= link_to "Show this character sheet", character_sheets_path(@character) %>
+      </p>
+    <% end %>
+<% end %>
 </div>
-
-<%= link_to "New character sheet", new_character_sheet_path(@character) %>
