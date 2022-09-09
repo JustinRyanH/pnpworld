@@ -20,8 +20,8 @@ class ModalComponent < ViewComponent::Base
     @label_id = label_id
     @panel_class = panel_class
     @close_to = close_to
-    @position = position
-    @mobile_position = mobile_position
+    @position = position.to_sym
+    @mobile_position = mobile_position.to_sym
   end
 
   private
@@ -33,14 +33,22 @@ class ModalComponent < ViewComponent::Base
   end
 
   def content_position
-    [position_class, mobile_position_class].join(' ')
+    [position_class, 'p-4', mobile_position_class, 'sm:p-0'].join(' ')
   end
 
   def position_class
-    'sm:items-center sm:p-0'
+    return 'sm:items-start' if position == :top
+    return 'sm:items-center' if position == :middle
+    return 'sm:items-end' if position == :bottom
+
+    'sm:items-center'
   end
 
   def mobile_position_class
-    'p-4 items-end'
+    return 'items-start' if mobile_position == :top
+    return 'items-center' if mobile_position == :middle
+    return 'items-end' if mobile_position == :bottom
+
+    'items-end'
   end
 end

@@ -4,6 +4,7 @@
     id: "#{dom_id(@character)}_show",
     label_id: 'character-header',
     close_to: characters_path,
+    position: :top,
   ) do |modal| %>
     <% modal.with_header do %>
       <%= render HeaderComponent.new(level: 2, id: 'characters-header', classname: "pb-2 ml-2") do %>
