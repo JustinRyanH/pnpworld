@@ -15,7 +15,7 @@ module Sheets
     class Stats
       include ActiveModel::API
 
-      def self.attr_stat(*attrs)
+      def self.attr_stat(kind, *attrs)
         attrs.each do |attr|
           instance_for_attr = "@#{attr}"
 
@@ -24,14 +24,14 @@ module Sheets
           end
 
           define_method("#{attr}=") do |arg|
-            return instance_variable_set(instance_for_attr, arg) if arg.is_a? Stat
+            return instance_variable_set(instance_for_attr, arg) if arg.is_a? kind
 
-            instance_variable_set(instance_for_attr, Stat.new(value: arg))
+            instance_variable_set(instance_for_attr, kind.new(value: arg))
           end
         end
       end
 
-      attr_stat :charisma, :wisdom, :intelligence, :constitution, :dexterity, :strength
+      attr_stat  Stat,:charisma, :wisdom, :intelligence, :constitution, :dexterity, :strength
     end
     include ActiveModel::API
 
