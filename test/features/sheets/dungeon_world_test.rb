@@ -2,8 +2,8 @@
 
 require 'test_helper'
 
-class DungeonWorldTest < Minitest::Test
-  def test_struct
+class DungeonWorldTest < ActiveSupport::TestCase
+  test "initialize" do
     struct = Sheets::DungeonWorld.new(
       max_hit_points: 10,
       damage: 'd8',
@@ -26,6 +26,6 @@ class DungeonWorldTest < Minitest::Test
     assert_equal(12, struct.stats.intelligence)
     assert_equal(13, struct.stats.constitution)
     assert_equal(15, struct.stats.dexterity)
-    assert_equal(16, struct.stats.charisma)
+    assert_equal(8, struct.stats.charisma)
   end
 end
