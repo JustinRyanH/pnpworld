@@ -4,7 +4,7 @@ module DungeonWorld
   class Stat
     include ActiveModel::API
 
-    validates :value, presence: true
+    validates :value, presence: true, numericality: { only_integer: true }
 
     attr_accessor :value
 

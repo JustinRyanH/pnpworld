@@ -8,5 +8,11 @@ module DungeonWorld
       refute example_no_value.valid?
       assert example_no_value.errors[:value]
     end
+
+    test "value is a integer" do
+      value_as_float = DungeonWorld::Stat.new(value: 3.5)
+      refute value_as_float.valid?
+      assert value_as_float.errors[:value]
+    end
   end
 end
