@@ -15,13 +15,20 @@ class Sheets::DungeonWorld
 
     attr_accessor :wisdom, :intelligence, :constitution, :dexterity, :strength
 
-    def charisma=(value)
-      @charisma = Stat.new(value: value)
+    def self.attr_stat(*attrs)
+      attrs.each do |attr|
+        define_method(attr) do
+          instance_variable_get("@#{attr}")
+        end
+
+        define_method("#{attr}=") do |arg|
+          return instance_variable_set("@#{attr}", arg) if arg.is_a? Stat
+          instance_variable_set("@#{attr}", Stat.new(value: arg))
+        end
+      end
     end
 
-    def charisma
-      @charisma
-    end
+    attr_stat :charisma
   end
   include ActiveModel::API
 
