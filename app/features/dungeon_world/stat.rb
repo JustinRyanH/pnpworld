@@ -12,6 +12,21 @@ module DungeonWorld
 
     attr_accessor :value
 
+    # The Modifier for the given stat based on it's total value
+    #
+    # @return [Integer]
+    def modifier
+      case value
+      when 1..3 then -3
+      when 4..5 then -2
+      when 6..8 then -1
+      when 9..12 then 0
+      when 13..15 then 1
+      when 16..17 then 2
+      when 18 then 3
+      end
+    end
+
     def as_json
       value
     end
