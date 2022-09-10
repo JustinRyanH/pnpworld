@@ -12,7 +12,8 @@
       <% end %>
     <% end %> %>
     <% modal.with_body do %>
-      Placeholder Stuff
+      <%= turbo_frame_tag "#{dom_id(@character)}_character_sheet" , src: character_sheets_path(@character) do %>
+      <% end %>
     <% end %>
 
     <% modal.with_footer do %>

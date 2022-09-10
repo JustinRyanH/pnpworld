@@ -1,12 +1,14 @@
-<%= render HeaderComponent.new(level: 2) do %>
-  Character sheets
-<% end %>
-
-<div id="character_sheet" class="p-2">
-  <% @character_sheets.each do |character_sheet| %>
-    <%= render character_sheet %>
-    <p>
-      <%= link_to "Show this character sheet", character_sheets_path(@character) %>
-    </p>
+<%= turbo_frame_tag "#{dom_id(@character)}_character_sheet" do %>
+  <%= render HeaderComponent.new(level: 2) do %>
+    Character sheets
   <% end %>
-</div>
+
+  <div id="character_sheet" class="p-2">
+    <% @character_sheets.each do |character_sheet| %>
+      <%= render character_sheet %>
+      <p>
+        <%= link_to "Show this character sheet", character_sheets_path(@character) %>
+      </p>
+    <% end %>
+  </div>
+<% end %>
