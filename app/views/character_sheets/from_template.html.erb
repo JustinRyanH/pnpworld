@@ -1,0 +1,22 @@
+<%= render HeaderComponent.new do  %>
+  <%= @character.name %>
+<% end %>
+<%= turbo_frame_tag "#{dom_id(@character)}_character_sheet" do %>
+  <div class="flex flex-col">
+    <section>
+      <div>
+        <span>Armor</span>
+        <span>+0</span>
+      </div>
+      <div>Hit Points: </div>
+      <div>Damage: d10</div>
+    </section>
+    <section>
+      <div>
+        <span>Strength</span>
+        <span>STR</span>
+        <span>Weak -1</span>
+      </div>
+    </section>
+  </div>
+<% end %>

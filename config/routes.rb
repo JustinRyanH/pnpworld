@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :characters do
-    resources :sheets, controller: 'character_sheets'
+    resources :sheets, controller: 'character_sheets' do
+      get 'from_template', on: :new
+    end
   end
   root to: 'entry#index'
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }

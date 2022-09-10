@@ -8,6 +8,6 @@
   </p>
 
   <div id="character_sheet" class="py-2 flex flex-wrap">
-    <%= link_to "Create Barbarian", "", class: "btn-default" %>
+    <%= link_to "Create Barbarian", from_template_new_character_sheet_url(@character, { template: "barbarian" }), class: "btn-default" %>
   </div>
 <% end %>

@@ -70,6 +70,11 @@ class CharacterSheetsController < ApplicationController
     end
   end
 
+  def from_template
+    @template = params[:template]
+    @character_sheet = CharacterSheet.new
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
