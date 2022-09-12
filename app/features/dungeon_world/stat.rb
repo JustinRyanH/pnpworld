@@ -4,13 +4,14 @@ module DungeonWorld
   class Stat
     include ActiveModel::API
 
+    validates :name, presence: true
     validates :value, presence: true, numericality: {
       only_integer: true,
       less_than_or_equal_to: 18,
       greater_than_or_equal_to: 3
     }
 
-    attr_accessor :value
+    attr_accessor :value, :name
 
     # The Modifier for the given stat based on it's total value
     #
