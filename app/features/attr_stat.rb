@@ -10,7 +10,7 @@ module AttrStat
       define_method("#{attr}=") do |arg|
         return instance_variable_set(instance_for_attr, arg) if arg.is_a? kind
 
-        instance_variable_set(instance_for_attr, kind.new(value: arg))
+        instance_variable_set(instance_for_attr, kind.new(name: attr.to_s, value: arg))
       end
     end
   end
