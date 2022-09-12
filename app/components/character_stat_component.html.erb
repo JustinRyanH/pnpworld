@@ -1,0 +1,24 @@
+<aside class="character-attribute" aria-labelledby="<%= name %>-title">
+  <div class="score p-2 pt-0">
+    <h3 class="text-sm" id="<%= name %>-title"><%= name %></h3>
+    <span class="text-center"><%= stat %></span>
+  </div>
+  <div class="flex justify-between -mt-2 pr-1 pl-1">
+    <button class="modifier">
+      <div class="font-chango font-extrabold uppercase text-sm"><%=  abbreviation %></div>
+      <div class="font-extrabold font-alatsi text-4xl">
+        <%= modifier %>
+      </div>
+    </button>
+    <div class="flex flex-col p-2 w-16 items-center font-extrabold font-cormorant-unicase text-lesser-gray-200 ">
+      <label class="uppercase text-xs p-1" for="<%= debility  %>"><%= debility %></label>
+      <button
+        class="bg-savannah-white-300"
+        role="checkbox"
+        aria-checked="<%= "false" %>"
+        name="<%= debility %>"
+        id="<%= debility %>">
+      </button>
+    </div>
+  </div>
+</aside>

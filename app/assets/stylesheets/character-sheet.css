@@ -1,0 +1,28 @@
+
+.character-attribute {
+    @apply shadow-lg bg-neutral-500 text-neutral-800 p-1 inline-block rounded-md;
+}
+
+.character-attribute .score {
+    @apply flex items-baseline bg-neutral-300 font-bold justify-between px-2 rounded-t text-xl uppercase;
+}
+
+.character-attribute .score > span {
+    @apply ml-2;
+}
+
+.character-attribute .modifier {
+    @apply rounded-full bg-neutral-400 w-20 h-20 flex flex-col text-center p-2;
+}
+
+.character-attribute [role="checkbox"] {
+    @apply rounded-full w-8 h-8 text-center bg-neutral-300 ;
+}
+
+.character-attribute [aria-checked="true"]::before {
+    content: "x";
+}
+
+.character-attribute [aria-checked="false"]::before {
+    content: " ";
+}
